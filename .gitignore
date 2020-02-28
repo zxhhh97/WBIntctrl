@@ -1,4 +1,5 @@
-# self-defined
+self-defined
+.DS_Store
 *.json
 *.csv
 
