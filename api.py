@@ -79,7 +79,6 @@ def weibo_intl():
 def get_homeTL(): 
     '''获取用户前n条微博信息'''
     setup_poco() 
-    #name = request.args.get('name')
     number = int(request.args.get('num'))
     wb.back_home()
     wb.refresh_my_timeline()
@@ -147,7 +146,7 @@ def index():
 
 if __name__ == '__main__':
     app.debug = True 
-    poco,_ = setup_poco()
+    #poco,_ = setup_poco()
     #app.run(host='0.0.0.0',  debug=True)
     app.run(
       host='0.0.0.0',

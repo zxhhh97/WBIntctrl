@@ -5,9 +5,11 @@ from airtest.core.android.minitouch import *
 import datetime,time,logging
 from functools import wraps
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco 
+import os
 
 ongoing = False
-ip_address = "127.0.0.1:62001" #夜神nox
+ip_address = "127.0.0.1:62001" #夜神nox模拟器
+myphone = 'KWG7N17210000966' #fill in the serial of your phone ! adb devices
 
 def opt_lock():
     def decorator(func):
@@ -51,10 +53,10 @@ def writelog(*text):
     return decorator
 
 @writelog()
-def setup_poco(state = 'usb', srl = None):
+def setup_poco(state = 'direct', srl = None):
     global poco
     if state == 'usb':
-        srl = 'KWG7N17210000966' if not srl else srl
+        srl = myphone if not srl else srl
         device = build_device(usb = srl)
     elif state == 'nox':
         srl = "127.0.0.1:62001" if not srl else srl
@@ -65,7 +67,7 @@ def setup_poco(state = 'usb', srl = None):
     return poco,device
 
 
-def build_device(ip=None,usb='KWG7N17210000966'):
+def build_device(ip=None,usb=None):
     if ip:
         print(ip)
         dev = connect_device('android:///{}?cap_method=javacap&touch_method=adb'.format(ip))
