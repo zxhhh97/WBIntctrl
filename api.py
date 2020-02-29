@@ -3,8 +3,6 @@ from flask import Flask,request
 import json
 from urllib import parse
 import sys
-sys.path.append("../")
-import simulate.simulation as sm
 import WBIntl as wb
 from setting import setup_poco,writelog,opt_lock
 app = Flask(__name__)
@@ -135,6 +133,8 @@ def quickrepost():
 @app.route('/simulation')
 @writelog()
 def simulation():
+    sys.path.append("../")
+    import simulate.simulation as sm
     jsontree = sm.run()
     return jsontree #to_jsonstr(jsontree)
 
