@@ -13,7 +13,7 @@ myphone = 'KWG7N17210000966' #fill in the serial of your phone ! adb devices
 
 def opt_lock():
     def decorator(func):
-        @wraps(func)  #内置函数使新建的函数属性不变
+        @wraps(func)  
         def wrapper(*args, **kw):
             global ongoing
             # before
@@ -35,7 +35,7 @@ def writeinto(*log_content):
 
 def writelog(*text):
     def decorator(func):
-        @wraps(func)  #内置函数使新建的函数属性不变
+        @wraps(func)  
         def wrapper(*args, **kw):
             msg = '===={} {} :{}===='.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),func.__name__,'Begin')
             print(msg)

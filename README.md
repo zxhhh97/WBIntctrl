@@ -13,3 +13,5 @@ WB Intl. app control on Android platform
 - api.py
     - common tasks
 
+
+*Detailed info has been updated on the google drive/Docs*
